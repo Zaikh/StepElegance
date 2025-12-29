@@ -654,7 +654,7 @@ padding: 30px;
     <div id="nav">
         <h1>Step&nbsp;Elegance</h1>
         <div id="right">
-          <h4><a href="{{ url('/index') }}">ABOUT US<span></span></a></h4>
+          <h4><a href="{{ url('/index') }}">HOME<span></span></a></h4>
           <h4><a href="{{ url('/home') }}">STORE<span></span></a></h4>
           <h4><a href="{{ url('/Contact_us') }}">CONTACT US<span></span></a></h4>
           <h4><a href="{{ url('/Offers') }}">OFFERS<span></span></a></h4>

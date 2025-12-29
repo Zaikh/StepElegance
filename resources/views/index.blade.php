@@ -80,8 +80,14 @@ body{
     background-image: url('assets/img/shoe.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: cover;
+    background-position: center;
     height: 100vh;
+}
+
+hr {
+  width: 90%;
+  margin: 40px auto;
 }
 
 #nav{
@@ -169,7 +175,7 @@ body{
 }
  #homemain {
     width: 100%;
-    padding: 15vh 16vh;
+  padding: 12vh 6vw;
 }
 #homemain h1{
     font-weight: 400;
@@ -377,52 +383,67 @@ body{
     color: #bdbdbe;
 }
 
-#loader{
-    height: 100%;
-    width: 100%;
-    background-color: #dad9d9;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    transition: all ease 0.7s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* ===================== */
+/* RESPONSIVE LOADER FIX */
+/* ===================== */
+
+#loader {
+  height: 100vh;
+  width: 100vw;
+  background-color: #dad9d9;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-#loader h1{
-    font-size: 7vw;
-    color: transparent;
-    background: linear-gradient(to right,orange,orangered);
-    -webkit-background-clip: text;
-    position: absolute;
-    opacity: 0;
-    animation-name: load;
-    animation-duration: 1s;
-    animation-delay: 1s;
-    animation-timing-function: linear;
-}
-#loader h1:nth-child(2){
-    animation-delay: 2s;
-}
-#loader h1:nth-child(3){
-    animation-delay: 3s;
+#loader h1 {
+  font-size: clamp(32px, 7vw, 120px);
+  color: transparent;
+  background: linear-gradient(to right, orange, orangered);
+  -webkit-background-clip: text;
+  background-clip: text;
+  position: absolute;
+  opacity: 0;
+  animation-name: load;
+  animation-duration: 1s;
+  animation-timing-function: linear;
 }
 
+/* animation timing same as your logic */
+#loader h1:nth-child(1) { animation-delay: 1s; }
+#loader h1:nth-child(2) { animation-delay: 2s; }
+#loader h1:nth-child(3) { animation-delay: 3s; }
+
+/* small devices tuning */
+@media (max-width: 768px) {
+  #loader h1 {
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  #loader h1 {
+    font-size: clamp(28px, 9vw, 60px);
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 360px) {
+  #loader h1 {
+    font-size: 10vw;
+    text-align: center;
+  }
+}
 
 @keyframes load {
-    0%{
-        opacity: 0;
-    }
-    10%{
-        opacity: 1;
-    }
-    90%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-    }
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 
@@ -448,9 +469,13 @@ body{
 }
 .col
 {
-  width: 341px;  
+  max-width: 90vw; 
   transition: transform 0.3s ease;
   border-radius: 10px;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 .collection {
@@ -803,6 +828,14 @@ justify-content: center;
     transform: rotate(-45deg) translate(6px, -6px);
   }
 
+  footer {
+    margin-top: 100px;
+  }
+
+  hr{
+    margin-top: 100px;
+  }
+
   .footer-container {
     flex-direction: column;
     gap: 30px;
@@ -1080,7 +1113,7 @@ function loaderAnimation() {
       </div>
     </div>
   </div>
- <hr style="width: 1300px;margin-left: 60px;">
+ <hr>
  <footer class="footer" style="padding-bottom: -50px;">
     <div class="footer-container">
       <div class="footer-section">
@@ -1126,7 +1159,7 @@ function loaderAnimation() {
       </div>
 
     </div>
-    <hr style="width: 1300px;margin-left: 60px;margin-top: 100px;">
+    <hr>
     <div class="child-footer" style="margin-bottom: -90px;">
         <ul>
             <li>© Copyright Step Elegance 2024</li>
